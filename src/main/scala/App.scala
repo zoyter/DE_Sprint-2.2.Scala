@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.And
+
 import scala.io.StdIn.readLine
 
 object App {
@@ -8,9 +10,9 @@ object App {
 //    task_c()
 //    task_d()
 //    task_e()
-    task_f()
+//    task_f()
 //    task_g()
-//    task_h()
+    task_h()
   }
 
   def task_a(){
@@ -66,12 +68,12 @@ object App {
     } else{
       println(deviation.toString + " %")
     }
-
   }
   def task_d(): Unit ={
     println("Task D")
     // Попробуйте рассчитать новую зарплату сотрудника, добавив(или отняв, если сотрудник плохо себя вел) необходимую сумму с учетом результатов прошлого задания. Добавьте его зарплату в список и вычислите значение самой высокой зарплаты и самой низкой.
     var staff_salary: List[Int] = List(100, 150, 200, 80, 120, 75)
+    println("Введите зарплату: ")
     var new_salary = readLine().toInt
     staff_salary.++=(List(new_salary))
     println("Самая выскоая зарплата: " + staff_salary.max.toString)
@@ -97,10 +99,29 @@ object App {
 
   }
   def task_g(): Unit = {
-
+    println("Task G")
+    //    g. Попробуйте вывести номера сотрудников из полученного списка, которые попадают под категорию middle. На входе программе подается «вилка» зарплаты специалистов уровня middle.
+    val staff_salary = List(100, 150, 200, 80, 120, 75)
+    println("Минимальная зарплата (middle-разработчик): ")
+    val salary_middle_min = readLine().toInt
+    println("Максимальная зарплата (middle-разработчик): ")
+    val salary_middle_max = readLine().toInt
+    println("Список зарплат от "+salary_middle_min.toString+" до "+salary_middle_max )
+    for (i <- staff_salary){
+      if (i >= salary_middle_min && i <= salary_middle_max ){
+        println(i)
+      }
+    }
   }
   def task_h(): Unit = {
-
+    println("Task H")
+    //    h.     Однако наступил кризис и ваши сотрудники требуют повысить зарплату. Вам необходимо проиндексировать зарплату каждого сотрудника на уровень инфляции – 7%
+    var staff_salary: List[Int] = List(100, 150, 200, 80, 120, 75)
+    var inflation = 0.07
+    println("Зарплата с учётом компенсации за инфляцию")
+    for (i <- staff_salary) {
+      println(i + i*inflation)
+      }
   }
 }
 //codewars.com
